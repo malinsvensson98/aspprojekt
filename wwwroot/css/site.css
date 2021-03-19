@@ -1,0 +1,149 @@
+﻿
+/* Huvudmenyn med tillhörande element */
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Grund */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/* Footer */
+.footer {
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; 
+  color: white;
+  background-color: black;
+  text-align: center;
+  margin: auto;
+  position: absolute; 
+}
+
+footer a {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Gör bilder responsiva */
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+header {
+    color: white;
+}
+
+/* Huvudmenyn */
+.bg-white {
+    background-color: black!important;
+    color: white!important;
+}
+
+a.text-dark:focus, a.text-dark:hover {
+    color: grey!important; 
+}
+
+.navbar-nav .nav-link {
+    color: white!important; 
+}
+
+.navbar-light .navbar-brand {
+    color: white!important;
+}
+
+.navbar-light:hover .navbar-brand:hover {
+    color: grey!important;
+}
+
+/* Logga in */
+button {
+    background-color: black!important;
+    color: white!important; 
+}
+
+p.about {
+    max-width: 700px;
+    margin: auto;
+}
+
+/* Knapp i menyn */
+
+.navbar-toggler {
+    color: white!important;
+    background-color: white!important; 
+}
+
+
+.navbar-toggler:hover {
+    color: white !important;
+    background-color: white !important;
+}
+
+.navbar-collapse d-sm-inline-flex justify-content-between collapse show {
+    color: white!important; 
+}
+
+/* För att göra tabellen scrollbar åt höger och vänster */
+
+.table {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+}
+
+.table thead, tbody, tr {
+        width: 100%;
+        overflow-x: auto;
+}

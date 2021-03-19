@@ -1,0 +1,62 @@
+@model IEnumerable<aspprojekt.Models.Courses>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{ ViewData["Title"] = "Utbildning"; }
+<br />
+<br />
+
+<h1>Min utbildning</h1><br />
+@if (SignInManager.IsSignedIn(User)) // Kontrollera om användaren är inloggad
+{
+<p>
+    <a asp-action="Create">Skapa ny</a>
+</p>}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Url)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Code)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+        <a href="@Html.DisplayFor(modelItem => item.Url)">Kursinformation</a>
+    </td>
+
+    @if (SignInManager.IsSignedIn(User)) // Visa endast gränssnitt vid inloggad besökare 
+    {
+<td>
+    <a asp-action="Edit" asp-route-id="@item.CourseId">Redigera</a> 
+
+    <a asp-action="Details" asp-route-id="@item.CourseId">Detaljer</a> 
+    <a asp-action="Delete" asp-route-id="@item.CourseId">Radera</a>
+</td>
+}
+</tr>
+}
+
+    </tbody>
+</table>
+<br />
+<br />
+<br />
+<br />

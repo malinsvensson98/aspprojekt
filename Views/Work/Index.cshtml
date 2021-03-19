@@ -1,0 +1,64 @@
+@model IEnumerable<aspprojekt.Models.Works>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+<br />
+<br />
+
+@{ ViewData["Title"] = "Index"; }
+
+<h1>Tidigare arbeten</h1><br />
+@if (SignInManager.IsSignedIn(User)) // Kontrollera status, är besökaren inloggad? 
+{
+<p>
+    <a asp-action="Create">Skapa ny</a>
+</p>}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Company)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkLength)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Company)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.WorkTitle)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.WorkLength)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Description)
+    </td>
+    @if (SignInManager.IsSignedIn(User)) // Visa endast gränssnitt för inloggad användare
+    {
+<td>
+    <a asp-action="Edit" asp-route-id="@item.WorkId">Redigera</a> 
+    <a asp-action="Details" asp-route-id="@item.WorkId">Detaljer</a> 
+    <a asp-action="Delete" asp-route-id="@item.WorkId">Radera</a>
+</td>}
+</tr>
+}
+    </tbody>
+</table>
+<br />
+<br />
+<br />
+<br />
